@@ -1,0 +1,46 @@
+# OASIS_START
+# DO NOT EDIT (digest: 7c4a36a841acad9fe719ee06a49fd8ba)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+true: annot, bin_annot
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library mirage_flow
+"lib/mirage_flow.cmxs": use_mirage_flow
+<lib/*.ml{,i,y}>: pkg_cstruct
+<lib/*.ml{,i,y}>: pkg_lwt
+<lib/*.ml{,i,y}>: pkg_mirage-types.lwt
+# Library lwt-io
+"lib/lwt-io/lwt-io.cmxs": use_lwt-io
+<lib/lwt-io/*.ml{,i,y}>: pkg_cstruct
+<lib/lwt-io/*.ml{,i,y}>: pkg_lwt
+<lib/lwt-io/*.ml{,i,y}>: pkg_lwt.unix
+<lib/lwt-io/*.ml{,i,y}>: pkg_mirage-types.lwt
+<lib/lwt-io/*.ml{,i,y}>: use_mirage_flow
+# Executable test_flow
+<lib_test/test.{native,byte}>: pkg_alcotest
+<lib_test/test.{native,byte}>: pkg_cstruct
+<lib_test/test.{native,byte}>: pkg_lwt
+<lib_test/test.{native,byte}>: pkg_lwt.unix
+<lib_test/test.{native,byte}>: pkg_mirage-types.lwt
+<lib_test/test.{native,byte}>: pkg_oUnit
+<lib_test/test.{native,byte}>: use_lwt-io
+<lib_test/test.{native,byte}>: use_mirage_flow
+<lib_test/*.ml{,i,y}>: pkg_alcotest
+<lib_test/*.ml{,i,y}>: pkg_cstruct
+<lib_test/*.ml{,i,y}>: pkg_lwt
+<lib_test/*.ml{,i,y}>: pkg_lwt.unix
+<lib_test/*.ml{,i,y}>: pkg_mirage-types.lwt
+<lib_test/*.ml{,i,y}>: pkg_oUnit
+<lib_test/*.ml{,i,y}>: use_lwt-io
+<lib_test/*.ml{,i,y}>: use_mirage_flow
+# OASIS_STOP
